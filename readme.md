@@ -1,7 +1,7 @@
 # Cruz Distribuidora
 
 <p>
-    <img src="public/assets/img/Wallpaper.png">
+    <img src="public/assets/img/wallpaper.png">
 </p>
 
 ## Overview
