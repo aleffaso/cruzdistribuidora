@@ -5,7 +5,7 @@
 </p>
 
 ## Overview
-The main purpose of this project is to create a webpage to a cliente about lawyer services.
+The main purpose of this project is to create a webpage to a cliente about medical supplies.
 
 <hr>
 
