@@ -21,9 +21,7 @@ The main purpose of this project is to create a webpage to a cliente about medic
 ## Running the application
 
 - Run: `npm install`;
-- Run: `nodemon index.js`;
-- On web browser: http://localhost:3000/
-
+- Run: `npm start`;
 <hr>
 
 ## Licenses

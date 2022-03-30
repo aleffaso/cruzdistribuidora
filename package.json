@@ -4,7 +4,8 @@
   "description": "lawyer service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "open http://localhost:3000 && nodemon index.js"
   },
   "author": "Aleff Oliveira",
   "license": "ISC",
