@@ -11,10 +11,41 @@ The main purpose of this project is to create a webpage to a cliente about medic
 
 ## Libraries 
 
+- Bcrypt => Crypt password;
+- Body-parser => Bypass json data
 - DotEnv => Work with envkeys;
 - EJS => Render HTML;
 - Express => Flexible framework;
+- Express-session => create specific routes for admins controller
+- Mysql2 => Data base
 - Nodemon => Update server when save
+- Sequelize => Manipulate database
+- Slugify => Replaces spaces with hyphen from saved text
+
+<hr>
+
+## Configuring database
+
+1. Add `.env` file into main folder, and put:
+
+    - `DATABASE_PASSWORD = YourPassword`
+    - `DATABASE_USER = root`
+    - `DATABASE_TABLE = distribuidora`
+    - `DATABASE_HOST = localhost`
+    - `DATABASE_DIALECT = mysql`
+    - `DATABASE_TIMEZONE = -03:00`
+    - `SESSION_SECRET = YourPassword`
+    - `PORT = 3000`
+
+<br>
+
+2. Go into the terminal and type: `/usr/local/mysql/bin/mysql -u root -p`;
+
+3. Put your root password
+
+4. Create the data base: `CREATE DATABASE distribuidora;`
+
+5. Exit from mysql>:`exit`
 
 <hr>
 

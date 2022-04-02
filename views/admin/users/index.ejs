@@ -1,0 +1,42 @@
+<!--Header-->
+<%- include("../../partials/header.ejs") %>
+<!--Navbar-->
+<%- include("../navbar_admin.ejs") %>
+
+<main id="hero">
+    <section class="hero">
+        <div class="d-flex justify-content-center mt-4"  style="padding-top: 5rem;">
+            <div class="card text-center mt-4">
+                <div class="container text-center mt-1">
+                    <p class="fs-4">Usuários</p>
+                    <a class="btn btn-success" href="/admin/user/new">Criar novo usuário</a>
+        
+                    <table class="table table-bordered mt-4">
+                        <thead>
+                            <tr>
+                                <th>E-mail</th>
+                                <th>Editar</th>
+                                <th>Deletar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% users.forEach(users => {%>
+                            <tr>
+                                    <td><%= users.email %></td>
+                                    <td><a class="btn btn-warning" href="/admin/users/edit/<%= users.id %>">Editar</a></th>
+                                    <form method="POST" action="/users/delete" onsubmit=deleteCheck(event,this)>
+                                        <input type="hidden" name="id" value="<%= users.id %>">
+                                        <td><button class="btn btn-danger">Deletar</button></td>
+                                    </form>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--Footer -->
+<%- include("../../partials/footer.ejs") %>

@@ -1,0 +1,29 @@
+<!--Header-->
+<%- include("partials/header.ejs") %>
+<!--Navbar-->
+<%- include("partials/navbar.ejs") %>
+
+<main id="hero">
+    <section class="hero">
+        <div class="container d-flex justify-content-center mt-4"  style="padding-top: 5rem;">
+            <div class="card mt-4 text-center">
+                <div class="card-header" style="width: 18rem;"><br>
+                    <p class="fs-4">Login</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/authenticate">
+                        <input class="form-control" name="email" type="email" placeholder="email@exemplo.com">
+                        <br>
+                        <input class="form-control" name="password" type="password" placeholder="Senha">
+                        <br>
+                        <button type="submit" class="btn btn-success btn-block">Login</button>
+                    </form>
+        
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--Footer -->
+<%- include("partials/footer.ejs") %>

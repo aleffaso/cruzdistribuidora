@@ -1,0 +1,35 @@
+<!--Header-->
+<%- include("../../partials/header.ejs") %>
+<!--Navbar-->
+<%- include("../navbar_admin.ejs") %>
+
+<main id="hero">
+    <section class="hero">
+        <div class="container d-flex justify-content-center mt-4"  style="padding-top: 5rem;">
+            <div class="card text-center mt-4">
+                <div class="card-header" style="width: 18rem;"><br>
+                    <p class="fs-4">Editar usuário</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/users/update">
+                        <br>
+                        <input class="form-control" name="name" type="name" placeholder="Nome" value="<%= user.name %>">
+                        <br>
+                        <input class="form-control" name="email" type="email" placeholder="email@exemplo.com" value="<%= user.email %>">
+                        <br>
+                        <input class="form-control" name="password" type="password" placeholder="Senha">
+                        <br>
+                        <input class="form-control" name="passwordCheck" type="password" placeholder="Confirmar senha">
+                        <br>
+                        <input type="hidden" name="id" value="<%=user.id %>"> 
+                        <button type="submit" class="btn btn-success btn-block">Atualizar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--Footer -->
+<%- include("../../partials/footer.ejs") %>
