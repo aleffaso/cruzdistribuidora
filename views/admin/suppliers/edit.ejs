@@ -1,0 +1,29 @@
+<!--Header-->
+<%- include("../../partials/header.ejs") %>
+<!--Navbar-->
+<%- include("../navbar_admin.ejs") %>
+
+<main id="pages">
+    <section class="pages">
+        <div class="container d-flex justify-content-center mt-4"  style="padding-top: 5rem;">
+            <div class="card text-center mt-4">
+                <div class="card-header" style="width: 18rem;"><br>
+                    <p class="fs-4">Editar fornecedor</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/supplier/update">
+                        <br>
+                        <input class="form-control" name="title" type="text" placeholder="Nome" value="<%= supplier.title %>">
+                        <br>
+                        <input type="hidden" name="id" value="<%=supplier.id %>"> 
+                        <button type="submit" class="btn btn-success btn-block">Atualizar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--Footer -->
+<%- include("../../partials/footer.ejs") %>

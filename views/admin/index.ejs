@@ -1,7 +1,47 @@
 <!--Header-->
-<%- include("../../partials/header.ejs") %>
+<%- include("../partials/header.ejs") %>
 <!--Navbar-->
-<%- include("/navbar_admin.ejs") %>
+<%- include("./navbar_admin.ejs") %>
+
+<main id="pages">
+    <section class="pages d-flex justify-content-center">
+        <div class="row mt-5">
+            <div class="col-lg d-flex align-items-stretch">
+                <div class="container mt-4" style="width: auto;">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <p class="fs-4">Usuários</p>
+                            <a class="btn btn-primary" href="/admin/user/new">Criar</a>
+                            <a class="btn btn-warning" href="/admin/users">Editar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg d-flex align-items-stretch">
+                <div class="container mt-4" style="width: auto;">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <p class="fs-4">Produtos</p>
+                            <a class="btn btn-primary" href="/admin/product/new">Criar</a>
+                            <a class="btn btn-warning" href="/admin/products">Editar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg d-flex align-items-stretch">
+                <div class="container mt-4" style="width: auto;">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <p class="fs-4">Fornecedores</p>
+                            <a class="btn btn-primary" href="/admin/supplier/new">Criar</a>
+                            <a class="btn btn-warning" href="/admin/suppliers">Editar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 <!--Footer -->
-<%- include("../../partials/footer.ejs") %>
+<%- include("../partials/footer.ejs") %>

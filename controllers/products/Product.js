@@ -19,11 +19,11 @@ const Product = connection.define('products', {
     },
     price: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: true
     },
     amount: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     picture: {
         type: Sequelize.TEXT,
@@ -33,7 +33,7 @@ const Product = connection.define('products', {
 
 Product.belongsTo(Supplier)
 
-Product.sync({force:true}).then(() => {}); //Create table in case of it dos not exist
+Product.sync({force:false}).then(() => {}); //Create table in case of it dos not exist
 
 module.exports = Product;
 

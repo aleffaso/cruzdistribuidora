@@ -37,9 +37,9 @@ routes.post("/users/new", adminAuth, (req,res) => {
                 email: email,
                 password: hash
             }).then(() => {
-                res.redirect("/");
+                res.redirect("/admin/users");
             }).catch((err) => {
-                res.redirect("/");
+                res.redirect("/admin/users");
             });
         }else{
             res.send("O e-mail já existe");
@@ -113,6 +113,10 @@ routes.get("/login", (req,res) => {
     res.render("login");
 }); 
 
+routes.get("/admin/index", adminAuth, (req, res) => {
+    res.render("admin/index");
+});
+
 routes.post("/authenticate", (req,res) => {
     var email = req.body.email;
     var password = req.body.password;
@@ -126,7 +130,7 @@ routes.post("/authenticate", (req,res) => {
                     id: user.id,
                     email: user.email
                 }
-                res.redirect("/admin/users");    
+                res.redirect("/admin/index");    
             }else{
                 res.redirect("/login");
             };

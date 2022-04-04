@@ -10,7 +10,7 @@ const Supplier = connection.define('supplier', {
     }
 });
 
-Supplier.sync({force:true}).then(() => {}); //Create table in case of it dos not exist
+Supplier.sync({force:false}).then(() => {}); //Create table in case of it dos not exist
 
 module.exports = Supplier;
 
