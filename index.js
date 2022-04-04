@@ -6,7 +6,7 @@ const session = require('express-session');
 
 
 const routes = require('./config/routes');
-const usersController = require("./controllers/users/usersController");
+const usersController = require("./controllers/users/userscontroller");
 //const productsController = require("./controllers/users/productsController");
 //const suppliersController = require("./controllers/suppliers/suppliersController");
 
