@@ -4,7 +4,7 @@ const routes = express.Router();
 
 
 const User = require('./User');
-const adminAuth = require("../../middleware/adminAuth");
+const adminAuth = require("../../middleware/adminAuth"); 
 
 routes.get("/admin/users", adminAuth, (req, res) => {
     User.findAll().then(users => {
