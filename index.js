@@ -31,10 +31,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 //routes
-app.use("/", usersController);
 //app.use("/", productsController);
 //app.use("/", suppliersController);
 app.use("/", routes);
+app.use("/", usersController);
 
 //Server
 app.listen(process.env.PORT || 3000, () => {
