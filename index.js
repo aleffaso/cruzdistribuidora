@@ -6,8 +6,8 @@ const session = require('express-session');
 
 
 const routes = require('./config/routes');
-//const usersController = require("./controllers/users/usersController");
-//const productsController = require("./controllers/users/UsersController");
+const usersController = require("./controllers/users/usersController");
+//const productsController = require("./controllers/users/productsController");
 //const suppliersController = require("./controllers/suppliers/suppliersController");
 
 //Set envkeys
@@ -16,12 +16,12 @@ dotenv.config({path: './.env'})
 //View engine
 app.set('view engine', 'ejs');
 
-//Sessions
-// app.use(session({
-//     secret: process.env.SESSION_SECRET, 
-//     resave: false,
-//     saveUninitialized: false
-// }))
+Sessions
+app.use(session({
+    secret: process.env.SESSION_SECRET, 
+    resave: false,
+    saveUninitialized: false
+}))
 
 //static
 app.use(express.static('public'));
@@ -31,8 +31,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 //routes
-//app.use("/", usersController);
-// app.use("/", productsController);
+app.use("/", usersController);
+//app.use("/", productsController);
 //app.use("/", suppliersController);
 app.use("/", routes);
 
