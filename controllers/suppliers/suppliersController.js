@@ -5,7 +5,7 @@ const routes = express.Router();
 const Supplier = require('./Supplier');
 const adminAuth = require("../../middleware/adminAuth");
 
-routes.get("/admin/suppliers", (req, res) => {
+routes.get("/admin/suppliers", adminAuth, (req, res) => {
     Supplier.findAll().then(suppliers => {
         res.render("admin/suppliers/index", {suppliers:suppliers});
     })
