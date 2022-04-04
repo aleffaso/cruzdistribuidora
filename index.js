@@ -16,7 +16,7 @@ dotenv.config({path: './.env'})
 //View engine
 app.set('view engine', 'ejs');
 
-Sessions
+//Sessions
 app.use(session({
     secret: process.env.SESSION_SECRET, 
     resave: false,

@@ -1,25 +1,33 @@
 {
   "name": "cruzdistribuidora",
   "version": "1.0.0",
-  "description": "lawyer service",
+  "description": "<p>     <img src=\"public/assets/img/wallpaper.png\"> </p>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "open http://localhost:3000/ && nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Aleff Oliveira",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleffaso/cruzdistribuidora.git"
+  },
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleffaso/cruzdistribuidora/issues"
+  },
+  "homepage": "https://github.com/aleffaso/cruzdistribuidora#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.2",
+    "body-parser": "^1.20.0",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
+    "express-sessions": "^1.0.6",
     "heroku": "^7.33.3",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.15",
-    "sequelize": "^6.17.0",
+    "sequelize": "^6.18.0",
     "slugify": "^1.6.5"
   }
 }
