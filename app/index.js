@@ -6,7 +6,7 @@ const session = require('express-session');
 
 
 const routes = require('../config/routes');
-const usersController = require('../controllers/users/usersController');
+//const usersController = require('../controllers/users/usersController');
 //const productsController = require("./controllers/users/productsController");
 //const suppliersController = require("./controllers/suppliers/suppliersController");
 
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 //routes
-app.use("/", usersController);
+//app.use("/", usersController);
 //app.use("/", productsController);
 //app.use("/", suppliersController);
 app.use("/", routes);
