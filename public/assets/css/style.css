@@ -1052,7 +1052,7 @@ section {
   right: 15px;
 }
 .portfolio .portfolio-item:hover img {
-  top: -30px;
+  top: 0px;
 }
 .portfolio .portfolio-item:hover .portfolio-info {
   opacity: 1;

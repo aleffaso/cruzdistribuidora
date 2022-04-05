@@ -18,7 +18,10 @@ routes.get("/produtos", (req, res) => {
     Product.findAll({
         include: [{model: Supplier}]
     }).then(products => {
-        res.render("pages/products", {products: products});
+        Supplier.findAll({
+        }).then(suppliers => {
+            res.render("pages/products", {products: products, suppliers: suppliers});
+        });
     });
 });
 
