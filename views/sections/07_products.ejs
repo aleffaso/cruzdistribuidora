@@ -1,32 +1,51 @@
   <section id="products" class="portfolio">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Produtos</h2>
-        <p>Nossos produtos</p>
-      </div>
-
-      <div class="row" data-aos="fade-up" data-aos-delay="100">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">Todos</li>
-            <% products.forEach(products => {%>
-              <li data-filter=".filter-<%= products.supplier.title %>"><%= products.supplier.title %></li>
-            <% }) %>
-          </ul>
+    <div class="container" data-aos="zoom-in">
+      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="5000">
+        <div class="testimonial-item section-title">
+          <p>Nossos produtos</p>
         </div>
-      </div>
 
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-        <% products.forEach(products => {%>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-<%= products.supplier.title %>">
-            <img src="<%= products.picture %>" class="img-fluid-product" alt="">
-            <div class="portfolio-info">
-              <h4><%= products.title %></h4>
-                <p>Código: <%= products.code %></p>
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="row">
+              <% products.forEach(products => {%>
+                <div class="col-sm d-flex align-items-center justify-content-center">
+                  <div class="card me-2 ms-2 mt-2 mb-2" style="width: 18rem;">
+                    <img class="card-img-top" style="width: 150px;" src="<%= products.picture %>">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= products.supplier.title %></h5>
+                      <p class="card-text"><%= products.title %></p>
+                    </div>
+                  </div>
+                </div>
+              <% }) %>              
             </div>
           </div>
-        <% }) %>
+
+          <div class="swiper-slide">
+            <div class="row">
+              <% products.forEach(products => {%>
+                <div class="col-sm d-flex align-items-center justify-content-center">
+                  <div class="card me-2 ms-2 mt-2 mb-2" style="width: 18rem;">
+                    <img class="card-img-top" style="width: 150px;" src="<%= products.picture %>">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= products.supplier.title %></h5>
+                      <p class="card-text"><%= products.title %></p>
+                    </div>
+                  </div>
+                </div>
+              <% }) %>              
+            </div>
+          </div>
+
+        </div>
+        <br><br>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-center">
+        <a href="/produtos" class="btn btn-secondary">Ver mais</a>
       </div>
 
     </div>

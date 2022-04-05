@@ -14,6 +14,14 @@ routes.get("/", (req, res) => {
     });
 });
 
+routes.get("/produtos", (req, res) => {
+    Product.findAll({
+        include: [{model: Supplier}]
+    }).then(products => {
+        res.render("pages/products", {products: products});
+    });
+});
+
 //database connection
 connection.authenticate().then(() => {
     console.log("connection success");
