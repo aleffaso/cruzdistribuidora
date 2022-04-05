@@ -1,0 +1,40 @@
+<!--Header-->
+<%- include("../../partials/header.ejs") %>
+<!--Navbar-->
+<%- include("../navbar_admin.ejs") %>
+
+<main id="pages">
+    <section class="pages">
+        <div class="d-flex justify-content-center mt-4"  style="padding-top: 5rem;">
+            <div class="card text-center mt-4">
+                <div class="container text-center mt-4">
+                    <a class="btn btn-success" href="/admin/product/new">Registrar novo produto</a>
+                    <table class="table table-bordered mt-4">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Editar</th>
+                                <th>Deletar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% products.forEach(products => {%>
+                            <tr>
+                                    <td><%= products.title%></td>
+                                    <td><a class="btn btn-warning" href="/admin/products/edit/<%= products.id %>">Editar</a></th>
+                                    <form method="POST" action="/products/delete" onsubmit=deleteCheck(event,this)>
+                                        <input type="hidden" name="id" value="<%= products.id %>">
+                                        <td><button class="btn btn-danger">Deletar</button></td>
+                                    </form>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--Footer -->
+<%- include("../../partials/footer.ejs") %>

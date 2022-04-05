@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 
 
-const connection = require("../../db/db");
+const connection = require("../db/db");
 const Supplier = require("../suppliers/Supplier")
 
 const Product = connection.define('products', {
@@ -14,15 +14,15 @@ const Product = connection.define('products', {
         allowNull: false
     },
     code: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     },
     price: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
         allowNull: true
     },
     amount: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: true
     },
     picture: {

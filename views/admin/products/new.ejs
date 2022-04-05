@@ -1,0 +1,49 @@
+<!--Header-->
+<%- include("../../partials/header.ejs") %>
+<!--Navbar-->
+<%- include("../navbar_admin.ejs") %>
+
+<main id="pages">
+    <section class="pages">
+        <div class="container d-flex justify-content-center"  style="padding-top: 1rem;">
+            <div class="card text-center">
+                <div class="card-header" style="width: 18rem;"><br>
+                    <p class="fs-4">Registrar produto</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/product/new">
+                        <input class="form-control mb-1" name="title" type="text" placeholder="Titulo">
+                        <input class="form-control mb-1" name="code" type="text" placeholder="Código">
+                        <input class="form-control mb-1" name="price" type="text" placeholder="Preço">
+                        <input class="form-control mb-1" name="amount" type="number" placeholder="Quantidade">
+                        <select class="form-control mb-1" name="supplier">
+                            <% suppliers.forEach((supplier) => {%>
+                                <option value="<%= supplier.id %>"><%= supplier.title %></option>
+                            <% }) %>
+                        </select>
+                        <textarea class="form-control mb-1" name="picture" type="text" placeholder="Imagem do produto" id="Picture"></textarea>
+                        <button type="submit" class="btn btn-success btn-block mt-2">Registrar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--Footer -->
+<%- include("../../partials/footer.ejs") %>
+
+<script>
+    tinymce.init({
+        selector: "#Picture",
+        plugins: 'image',
+        menu : {    
+        test: {title: 'Inserir imagem', items: 'image'} 
+        },
+        menubar: 'test',
+        statusbar: false,
+        toolbar: false,
+        forced_root_block : false,
+    });
+</script>

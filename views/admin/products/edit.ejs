@@ -1,0 +1,51 @@
+<!--Header-->
+<%- include("../../partials/header.ejs") %>
+<!--Navbar-->
+<%- include("../navbar_admin.ejs") %>
+
+<main id="pages">
+    <section class="pages">
+        <div class="container d-flex justify-content-center"  style="padding-top: 1rem;">
+            <div class="card text-center">
+                <div class="card-header" style="width: 30rem;"><br>
+                    <p class="fs-4">Editar produto</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/product/update">
+                        <label for="title">Titulo:</label>
+                        <input id="title" class="form-control mb-1" name="title" type="text" value="<%= product.title %>"/>
+                        <input class="form-control mb-1" name="code" type="text" value="<%= product.code %>">
+                        <input class="form-control mb-1" name="price" type="text" value="<%= product.price %>">
+                        <input class="form-control mb-1" name="amount" type="number" value="<%= product.amount %>">
+                        <input class="form-control mb-1" name="picture" type="text" value="<%= product.picture %>" id="Picture">
+                        <select name="supplier" class="form-control mb-1">
+                            <% suppliers.forEach((supplier) => {%>
+                                <option value="<%= supplier.id %>"><%= supplier.title %></option>
+                            <% }) %>
+                        </select>
+                        <input type="hidden" name="id" value="<%=product.id %>"> 
+                        <button type="submit" class="btn btn-success btn-block">Atualizar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--Footer -->
+<%- include("../../partials/footer.ejs") %>
+
+<script>
+    tinymce.init({
+        selector: "#Picture",
+        plugins: 'image',
+        menu : {    
+        test: {title: 'Inserir imagem', items: 'image'} 
+        },
+        menubar: 'test',
+        statusbar: false,
+        toolbar: false,
+        forced_root_block : false,
+    });
+</script>

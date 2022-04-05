@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 
 
-const connection = require("../../db/db");
+const connection = require("../db/db");
 
 const Supplier = connection.define('supplier', {
     title:{

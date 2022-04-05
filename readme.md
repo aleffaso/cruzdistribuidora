@@ -55,6 +55,18 @@ The main purpose of this project is to create a webpage to a cliente about medic
 - Run: `npm start`;
 <hr>
 
+## Routes
+
+- Main: `http://localhost:3000/`;
+
+# Need admin access
+
+- List of users: `http://localhost:3000/admin/users`;
+- List of suppliers: `http://localhost:3000/admin/suppliers`;
+- List of products: `http://localhost:3000/admin/products`;
+
+<hr>
+
 ## Licenses
 <br>
 <p>

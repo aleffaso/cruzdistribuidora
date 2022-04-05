@@ -7,8 +7,8 @@ const session = require('express-session');
 
 const routes = require('./config/routes');
 const usersController = require('./users/usersController');
-//const productsController = require("./controllers/users/productsController");
-//const suppliersController = require("./controllers/suppliers/suppliersController");
+const productsController = require("./products/productsController");
+const suppliersController = require("./suppliers/suppliersController");
 
 //Set envkeys
 dotenv.config({path: './.env'})
@@ -32,8 +32,8 @@ app.use(bodyParser.json());
 
 //routes
 app.use("/", usersController);
-//app.use("/", productsController);
-//app.use("/", suppliersController);
+app.use("/", productsController);
+app.use("/", suppliersController);
 app.use("/", routes);
 
 //Server
