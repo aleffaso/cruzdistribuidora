@@ -8,10 +8,10 @@
   <section class="breadcrumbs">
     <div class="container">
 
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center" style="margin-top: 60px;">
         <h2>Catálogo de produtos</h2>
         <ol>
-          <li><a href="index.html">Início</a></li>
+          <li><a href="/">Início</a></li>
           <li>produtos</li>
         </ol>
       </div>
@@ -34,19 +34,17 @@
           </div>
       </div>
 
-        <div class="row justify-content-md-center portfolio-container" data-aos="fade-up" data-aos-delay="200">
-          <% products.forEach(products => {%>
-            <div class="col col-lg-2 portfolio-item filter-<%= products.supplier.title %>">
-              <div class="card" style="text-align: center;">
-                <img style="padding: 7%; margin: 12.5%;" src="<%= products.picture %>">
-                <div class="card-body" >
-                  <h5 class="card-title"><%= products.supplier.title %></h5>
-                  <p class="card-text"><%= products.title %></p>
-                </div>
-              </div>
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+        <% products.forEach(products => {%>
+          <div class="col-md-6 mt-0  portfolio-item filter-<%= products.supplier.title %>">
+            <div class="icon-box-portfolio" style="background: #f0f4f8;">
+            <i><img src="<%= products.picture %>"></i>
+              <h4><%= products.title %></h4>
+              <p>Fornecedor: <%= products.supplier.title %></p>
             </div>
-          <% }) %>
-        </div>
+          </div>
+        <% }) %>  
+      </div>
 
     </div>
   </section>
