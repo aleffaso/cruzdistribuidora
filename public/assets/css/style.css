@@ -379,7 +379,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero .carousel-item::before {
   content: "";
-  background-color: rgba(9, 9, 9, 0.5);
+  background-color: rgba(9, 9, 9, 0.1);
 }
 #hero .carousel-container {
   display: flex;
@@ -422,7 +422,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero .carousel-inner .carousel-item {
   transition-property: opacity;
-  background-position: center top;
+  background-position: center center;
 }
 #hero .carousel-inner .carousel-item,
 #hero .carousel-inner .active.carousel-item-start,
@@ -433,7 +433,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero .carousel-inner .carousel-item-next.carousel-item-start,
 #hero .carousel-inner .carousel-item-prev.carousel-item-end {
   opacity: 1;
-  transition: 0.5s;
+  transition: 1s;
 }
 #hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
   background: none;

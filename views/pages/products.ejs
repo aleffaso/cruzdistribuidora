@@ -34,25 +34,40 @@
           </div>
       </div>
 
-      <!-- <div class="row " data-aos="fade-up" data-aos-delay="100">
-        <div class="col d-flex justify-content-center text-center">
-          <i class="bi bi-search">
-            <input type="text" id="myInput" onkeyup="searchBox()" placeholder="Buscar produto">
-          </i>
-        </div>
-      </div> -->
-
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
         <% products.forEach(products => {%>
           <div class="col-md-6 mt-0  portfolio-item filter-<%= products.supplier.title %>">
             <div class="icon-box-portfolio" style="background: #f0f4f8;">
-            <i><img src="<%= products.picture %>"></i>
+              <i><img src="<%= products.picture %>"></i>
               <h4><%= products.title %></h4>
               <p>Fornecedor: <%= products.supplier.title %></p>
             </div>
           </div>
         <% }) %>  
       </div>
+
+      <!-- <div class="row" data-aos="fade-up" data-aos-delay="200">
+        <div class="col d-flex justify-content-center text-center">
+          <input id="listSearch" type="text" placeholder="Buscar..." class="form-control">
+          <div class="btn btn-secondary ms-1" style="color: #fff; background-color: #35a5ed; border-color:#35a5ed;">
+            <i class="bi bi-search"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4" data-aos="fade-up" data-aos-delay="200">
+        <% products.forEach(products => {%>
+          <div id="myList">
+            <div id="listItem">
+              <div class="icon-box-portfolio mt-3" style="background: #f0f4f8;">
+                <i><img style="max-width: 120px;" src="<%= products.picture %>"></i>
+                <h4><%= products.title %></h4>
+                <p>Fornecedor: <%= products.supplier.title %></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>  
+      </div> -->
 
     </div>
   </section>
