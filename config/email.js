@@ -28,6 +28,15 @@ async function mailSend(req, res, next){
                 'Mensagem: '+ req.body.message
     });
 
+    const mailCustomerSent = await transporter.sendMail({
+        from: process.env.EMAIL,
+        to: req.body.email,
+        subject: 'Cruz Distribuidora',
+        text:   'Olá ' + req.body.name + '\n\n' + 
+                'Recebemos sua mensagem e em breve entraremos em contato' + '\n\n' + 
+                'Equipe Cruz Distribuidora'
+    });
+
     next();
 };
 
