@@ -26,9 +26,9 @@ routes.get("/produtos", (req, res) => {
     });
 });
 
-routes.post("/send", mailSend, (req, res) => {
-    res.redirect("/#contact")
-});
+// routes.post("/send", mailSend, (req, res) => {
+//     res.redirect("/#contact")
+// });
 
 //Error not found page
 routes.get('*', (req, res) =>{
