@@ -4,7 +4,7 @@ const routes = express.Router();
 const connection = require("../db/db");
 const Supplier = require("../suppliers/Supplier");
 const Product =require("../products/Product")
-const mailSend = require("../config/email")
+//const mailSend = require("../config/email")
 
 //main page
 routes.get("/", (req, res) => {
