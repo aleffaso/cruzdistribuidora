@@ -36,10 +36,10 @@ routes.get('*', (req, res) =>{
 });
 
 //database connection
-connection.authenticate().then(() => {
-    console.log("connection success");
-}).catch((error) => {
-    console.log(error);
-});
+// connection.authenticate().then(() => {
+//     console.log("connection success");
+// }).catch((error) => {
+//     console.log(error);
+// });
 
 module.exports = routes;
