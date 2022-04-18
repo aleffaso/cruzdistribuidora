@@ -13,8 +13,7 @@ dotenv.config({path: './.env'})
 routes.get("/", (req, res) => {
     Product.findAll({
         include: [{model: Supplier}]
-    }).then(products => {res.render("index",
-        {
+    }).then(products => {res.render("index", {
             products: products,
             email: process.env.EMAIL,
             phone: process.env.PHONE,
@@ -36,7 +35,19 @@ routes.get("/produtos", (req, res) => {
     }).then(products => {
         Supplier.findAll({
         }).then(suppliers => {
-            res.render("pages/products", {products: products, suppliers: suppliers});
+            res.render("pages/products", {
+                products: products, 
+                suppliers: suppliers,
+                email: process.env.EMAIL,
+                phone: process.env.PHONE,
+                wpp: process.env.WPP,
+                cnpj: process.env.CNPJ,
+                cep: process.env.CEP,
+                address: process.env.ADDRESS,
+                provincy: process.env.PROVINCY,
+                city: process.env.CITY,
+                state: process.env.STATE
+            });
         });
     });
 });
@@ -48,7 +59,17 @@ routes.post("/send", mailSend, (req, res) => {
 
 //Not found page
 routes.get('*', (req, res) =>{
-    res.render("erro")
+    res.render("erro", {
+        email: process.env.EMAIL,
+        phone: process.env.PHONE,
+        wpp: process.env.WPP,
+        cnpj: process.env.CNPJ,
+        cep: process.env.CEP,
+        address: process.env.ADDRESS,
+        provincy: process.env.PROVINCY,
+        city: process.env.CITY,
+        state: process.env.STATE
+    })
 });
 
 //Database connection
