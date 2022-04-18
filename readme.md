@@ -16,11 +16,12 @@ The main purpose of this project is to create a webpage to a cliente about medic
 - DotEnv => Work with envkeys;
 - EJS => Render HTML;
 - Express => Flexible framework;
-- Express-session => create specific routes for admins controller
-- Mysql2 => Data base
-- Nodemon => Update server when save
-- Sequelize => Manipulate database
-- Slugify => Replaces spaces with hyphen from saved text
+- Express-session => create specific routes for admins controller;
+- Mysql2 => Data base;
+- Nodemailer => Send e-mail;
+- Nodemon => Update server when save;
+- Sequelize => Manipulate database;
+- Slugify => Replaces spaces with hyphen from saved text;
 
 <hr>
 

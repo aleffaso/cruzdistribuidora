@@ -39,14 +39,17 @@
         </div>
 
         <div class="col-lg-6 mt-4 mt-lg-0">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <form action="/send" method="POST" class="email-form" onsubmit=sentCheck(event,this)>
             <div class="row">
               <div class="col-md-6 form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" required>
               </div>
               <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Seu e-mail" required>
+                <input type="number" class="form-control" name="phone" id="phone" placeholder="(99) 9 9999-9999" required>
               </div>
+            </div>
+            <div class="form-group mt-3">
+              <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required>
             </div>
             <div class="form-group mt-3">
               <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" required>
@@ -54,12 +57,9 @@
             <div class="form-group mt-3">
               <textarea class="form-control" name="message" rows="5" placeholder="Mensagem" required></textarea>
             </div>
-            <div class="my-3">
-              <div class="loading">Carregando</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Mensagem enviada com sucesso. Entraremos em contato em breve!</div>
+            <div class="text-center mt-4">
+              <button type="submit">Enviar</button>
             </div>
-            <div class="text-center"><button type="submit">Enviar</button></div>
           </form>
         </div>
 
