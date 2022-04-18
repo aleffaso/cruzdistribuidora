@@ -14,10 +14,10 @@
             <div class="col-lg-6 mt-4">
               <p class="fs-5">
                 Cruz Distribuidora de Medicamentos e <br>Suprimentos Farmacêuticos LTDA
-                <br><br><strong>CNPJ:</strong> <%= cnpj %>
+                <br><br><strong>CNPJ:</strong> <%= company.cnpj %>
                 <br><br>
-                <strong>Telefone:</strong> <%= phone %><br><br>
-                <strong>E-mail:</strong> <%= email %>
+                <strong>Telefone:</strong> <%= company.phone %><br><br>
+                <strong>E-mail:</strong> <%= company.email %>
               </p>
             </div>
           </div>
@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <a href="https://api.whatsapp.com/send?phone=<%= wpp %>" target="__blank" class="back-to-top d-flex align-items-center justify-content-center ">
+    <a href="https://api.whatsapp.com/send?phone=<%= company.wpp %>" target="__blank" class="back-to-top d-flex align-items-center justify-content-center ">
       <i class="bi bi-whatsapp" style="z-index: 300;" ></i>
       <i class="bi bi-whatsapp glightbox play-btn" ></i>
     </a>

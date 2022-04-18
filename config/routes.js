@@ -9,21 +9,26 @@ const mailSend = require("../config/email")
 
 dotenv.config({path: './.env'})
 
+//Global variables
+const company = {
+    email : process.env.EMAIL,
+    phone : process.env.PHONE,
+    wpp : process.env.WPP,
+    cnpj : process.env.CNPJ,
+    cep : process.env.CEP,
+    address : process.env.ADDRESS,
+    provincy : process.env.PROVINCY,
+    city : process.env.CITY,
+    state : process.env.STATE
+}
+
 //main page
 routes.get("/", (req, res) => {
     Product.findAll({
         include: [{model: Supplier}]
     }).then(products => {res.render("index", {
             products: products,
-            email: process.env.EMAIL,
-            phone: process.env.PHONE,
-            wpp: process.env.WPP,
-            cnpj: process.env.CNPJ,
-            cep: process.env.CEP,
-            address: process.env.ADDRESS,
-            provincy: process.env.PROVINCY,
-            city: process.env.CITY,
-            state: process.env.STATE
+            company: company
         });
     });
 });
@@ -38,15 +43,7 @@ routes.get("/produtos", (req, res) => {
             res.render("pages/products", {
                 products: products, 
                 suppliers: suppliers,
-                email: process.env.EMAIL,
-                phone: process.env.PHONE,
-                wpp: process.env.WPP,
-                cnpj: process.env.CNPJ,
-                cep: process.env.CEP,
-                address: process.env.ADDRESS,
-                provincy: process.env.PROVINCY,
-                city: process.env.CITY,
-                state: process.env.STATE
+                company: company
             });
         });
     });
@@ -59,17 +56,7 @@ routes.post("/send", mailSend, (req, res) => {
 
 //Not found page
 routes.get('*', (req, res) =>{
-    res.render("erro", {
-        email: process.env.EMAIL,
-        phone: process.env.PHONE,
-        wpp: process.env.WPP,
-        cnpj: process.env.CNPJ,
-        cep: process.env.CEP,
-        address: process.env.ADDRESS,
-        provincy: process.env.PROVINCY,
-        city: process.env.CITY,
-        state: process.env.STATE
-    })
+    res.render("erro", {company: company})
 });
 
 //Database connection
