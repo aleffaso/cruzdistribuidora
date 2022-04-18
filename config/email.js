@@ -34,7 +34,7 @@ async function mailSend(req, res, next){
         subject: 'Cruz Distribuidora',
         text:   'Olá ' + req.body.name + '\n\n' + 
                 'Recebemos sua mensagem e em breve entraremos em contato' + '\n\n' + 
-                'Equipe Cruz Distribuidora'
+                'Equipe Distribuidora Cruz'
     });
 
     next();

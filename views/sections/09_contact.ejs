@@ -15,23 +15,21 @@
               <div class="info-box">
                 <i class="bx bx-map"></i>
                 <h3>Nosso endereço</h3>
-                <p>Avenida das Nações Unidas, 21476 - Bloco P11<br>Jurubatuba - São Paulo/SP<br>CEP: 04795-000</p>
+                <p><%= address %><br><%= provincy %> <%= city %>/<%= state %><br>CEP: <%= cep %></p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="info-box mt-3">
                 <i class="bx bx-envelope"></i>
                 <h3>Nosso e-mail</h3>
-                <p>contato@distribuidoracruz.com.br</p>
+                <p><%= email %></p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="info-box mt-3">
-                <a href="https://wa.me/5511947234912" target="__blank">
                   <i class="bi bi-whatsapp"></i>
-                </a>
-                <h3>Nosso número</h3>
-                <p>(11) 9 4723-4912</p>
+                  <h3>Nosso número</h3>
+                  <p><%= phone %></p>
               </div>
             </div>
           </div>

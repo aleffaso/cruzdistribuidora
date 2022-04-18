@@ -14,10 +14,10 @@
             <div class="col-lg-6 mt-4">
               <p class="fs-5">
                 Cruz Distribuidora de Medicamentos e <br>Suprimentos Farmacêuticos LTDA
-                <br><br>CNPJ: 28.189.712/0001-10
+                <br><br>CNPJ: <%= cnpj %>
                 <br><br>
-                <strong>Telefone:</strong> (11) 9 4723-4912<br><br>
-                <strong>E-mail:</strong> contato@distribuidoracruz.com.br
+                <strong>Telefone:</strong> <%= phone %><br><br>
+                <strong>E-mail:</strong> <%= email %>
               </p>
             </div>
           </div>
@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center ">
+    <a href="https://api.whatsapp.com/send?phone=<%= wpp %>" target="__blank" class="back-to-top d-flex align-items-center justify-content-center ">
       <i class="bi bi-whatsapp" style="z-index: 300;" ></i>
       <i class="bi bi-whatsapp glightbox play-btn" ></i>
     </a>
