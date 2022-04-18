@@ -4,7 +4,14 @@ const routes = express.Router();
 const connection = require("../db/db");
 const Supplier = require("../suppliers/Supplier");
 const Product =require("../products/Product")
-//const mailSend = require("../config/email")
+const mailSend = require("../config/email")
+
+//database connection
+connection.authenticate().then(() => {
+    console.log("connection success");
+}).catch((error) => {
+    console.log(error);
+});
 
 //main page
 routes.get("/", (req, res) => {
@@ -15,6 +22,7 @@ routes.get("/", (req, res) => {
     });
 });
 
+//Product page
 routes.get("/produtos", (req, res) => {
     Product.findAll({
         include: [{model: Supplier}]
@@ -26,20 +34,14 @@ routes.get("/produtos", (req, res) => {
     });
 });
 
-// routes.post("/send", mailSend, (req, res) => {
-//     res.redirect("/#contact")
-// });
+//send e-mail route
+routes.post("/send", mailSend, (req, res) => {
+    res.redirect("/#contact")
+});
 
 //Error not found page
 routes.get('*', (req, res) =>{
     res.render("erro")
 });
-
-//database connection
-// connection.authenticate().then(() => {
-//     console.log("connection success");
-// }).catch((error) => {
-//     console.log(error);
-// });
 
 module.exports = routes;
