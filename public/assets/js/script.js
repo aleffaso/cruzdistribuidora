@@ -9,7 +9,7 @@ function deleteCheck(event, form){
 
 //Make sure sending form
 function sentCheck(event, form){
-  var decision = confirm("Deseja enviar o formulário?");
+  var decision = confirm("Deseja enviar o e-mail?");
   event.preventDefault(); 
   if(decision){
       form.submit();

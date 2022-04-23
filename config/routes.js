@@ -1,7 +1,6 @@
 const express = require("express");
 const routes = express.Router();
 const dotenv = require('dotenv');
-const alert = require('alert');
 
 const connection = require("../db/db");
 const Supplier = require("../suppliers/Supplier");
@@ -59,9 +58,8 @@ routes.get("/produtos", (req, res) => {
 });
 
 //send e-mail route
-routes.post("/send", mailSend, (req, res) => {
+routes.post("/send", (req, res) => {
     res.redirect("/#contact")
-    alert("Email enviado com sucesso!")
 });
 
 //Not found page
