@@ -58,7 +58,7 @@ routes.get("/produtos", (req, res) => {
 });
 
 //send e-mail route
-routes.post("/send", (req, res) => {
+routes.post("/send", mailSend, (req, res) => {
     res.redirect("/#contact")
 });
 
