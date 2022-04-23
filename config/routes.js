@@ -60,8 +60,8 @@ routes.get("/produtos", (req, res) => {
 
 //send e-mail route
 routes.post("/send", mailSend, (req, res) => {
-    alert("Email enviado com sucesso!")
     res.redirect("/#contact")
+    alert("Email enviado com sucesso!")
 });
 
 //Not found page
