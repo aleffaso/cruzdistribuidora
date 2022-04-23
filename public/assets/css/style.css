@@ -28,6 +28,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
+# Product page
+--------------------------------------------------------------*/
+
+#mainProduct .list-image img {
+  width: 200px;
+}
+
+@media (min-width: 992px) {
+  #mainProduct .list-image {
+    width: 200px;
+  }
+  #mainProduct .row-align{
+    justify-content: flex-start !important;
+  }
+}
+@media (min-width: 1024px) {
+  #mainProduct .list-image {
+    width: 200px;
+  }
+  #mainProduct .row-align{
+    justify-content: space-between !important;
+  }
+  #mainProduct .col-side {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+}
+@media (min-width: 768px) {
+  #mainProduct .list-image {
+    width: 200px;
+  }
+  #mainProduct .row-align{
+    justify-content: flex-start !important;
+  }
+  #mainProduct .col-side {
+    flex: 0 0 auto;
+    width: 66%;
+  }
+}
+
+@media (max-width: 500px) {
+  #mainProduct .list-image {
+    width: 100px;
+  }
+  #mainProduct .row-align{
+    justify-content: space-around !important;
+  }
+  #mainProduct .col-side {
+    flex: 0 0 auto;
+    width: 66%;
+  }
+}
+
+@media (min-width: 500px) {
+  #mainProduct .list-image {
+    width: 100px;
+  }
+  #mainProduct .row-align{
+    justify-content: space-around !important;
+  }
+  #mainProduct .col-side {
+    flex: 0 0 auto;
+    width: 66%;
+  }
+}
+
+
+
+/*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
 .back-to-top {
@@ -362,7 +431,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 75vh;
+  height: 80vh;
   overflow: hidden;
   position: relative;
 }
@@ -480,6 +549,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
   background: #fff;
 }
+
 #hero .btn-get-started {
   font-family: "Raleway", sans-serif;
   font-weight: 500;

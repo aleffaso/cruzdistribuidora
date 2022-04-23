@@ -3,7 +3,7 @@
 <!--Navbar-->
 <%- include("../partials/navbar_pages.ejs") %>
 
-<main id="main">
+<main id="mainProduct">
 
   <section class="breadcrumbs">
     <div class="container">
@@ -60,10 +60,18 @@
           <div id="myList">
             <div id="listItem">
               <div class="icon-box-portfolio mt-3" style="background: #f0f4f8;">
-                <i><img style="max-width: 120px;" src="<%= products.picture %>"></i>
-                <h4><%= products.title %></h4>
-                <p>Fornecedor: <%= products.supplier.title %></p>
-                <p>Código: <%= products.code %></p>
+                <div class="row row-align">
+                  <div class="col-3 col-md-4 list-image">
+                    <i><img src="<%= products.picture %>"></i>
+                  </div>
+                  <div class="col-8 col-side">
+                    <h4><%= products.title %></h4>
+                    <p>
+                      <strong>Fornecedor:</strong> <%= products.supplier.title %>
+                      <br><strong>Código:</strong> <%= products.code %>
+                    </p>
+                  </div>
+                </div>                
               </div>
             </div>
           </div>

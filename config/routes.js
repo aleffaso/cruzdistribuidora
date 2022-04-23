@@ -1,6 +1,7 @@
 const express = require("express");
 const routes = express.Router();
 const dotenv = require('dotenv');
+const alert = require('alert');
 
 const connection = require("../db/db");
 const Supplier = require("../suppliers/Supplier");
@@ -24,11 +25,19 @@ const company = {
 
 //main page
 routes.get("/", (req, res) => {
+
+    const slide = {
+        max: 4,
+        min: 0,
+        avg: 3
+    } 
+
     Product.findAll({
         include: [{model: Supplier}]
     }).then(products => {res.render("index", {
             products: products,
-            company: company
+            company: company,
+            slide: slide
         });
     });
 });
@@ -51,6 +60,7 @@ routes.get("/produtos", (req, res) => {
 
 //send e-mail route
 routes.post("/send", mailSend, (req, res) => {
+    alert("Email enviado com sucesso!")
     res.redirect("/#contact")
 });
 
