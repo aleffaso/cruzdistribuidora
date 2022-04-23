@@ -1,26 +1,39 @@
 <main id="main">
   <section id="hero">
-      <div id="heroCarousel" data-bs-interval="6000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="heroCarousel" data-bs-interval="6000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
-        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-  
-        <div class="carousel-inner" role="listbox">
-  
-          <div class="carousel-item active" style="background-image: url(assets/img/propagandas/propaganda-1.png)">
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner background" role="listbox">
+
+        <div class="carousel-item active">
+          <div class="container banner" data-aos="fade-up">
+            <img src="assets/img/banner/inalador.png"/>
+          </div> <br>
+          <div class="container" data-aos="fade-up" data-aos-delay="150">
+              <a href="/#products" class="btn-get-started">Confira nossos produtos</a>
           </div>
-
-          <div class="carousel-item" style="background-image: url(assets/img/propagandas/propaganda-2.png)">
-          </div>
-
         </div>
-  
-        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-        </a>
-  
-        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-        </a>
-  
+
+        <div class="carousel-item">
+          <div class="container banner">
+            <img src="assets/img/banner/medidor.png"/>
+          </div><br>
+          <div class="container" data-aos="fade-up" data-aos-delay="150">
+            <a href="#produtcs" class="btn-get-started scrollto">Confira nossos produtos</a>
+        </div>
+        </div>        
+
       </div>
-    </section>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+      
+  </section>

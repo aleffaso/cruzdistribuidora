@@ -11,8 +11,9 @@ The main purpose of this project is to create a webpage to a cliente about medic
 
 ## Libraries 
 
+- Alert => Show info messages;
 - Bcrypt => Crypt password;
-- Body-parser => Bypass json data
+- Body-parser => Bypass json data;
 - DotEnv => Work with envkeys;
 - EJS => Render HTML;
 - Express => Flexible framework;

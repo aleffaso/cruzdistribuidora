@@ -28,6 +28,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
+# Product page
+--------------------------------------------------------------*/
+
+#mainProduct .list-image img {
+  width: 200px;
+}
+
+@media (min-width: 992px) {
+  #mainProduct .list-image {
+    width: 200px;
+  }
+  #mainProduct .row-align{
+    justify-content: flex-start !important;
+  }
+}
+@media (min-width: 1024px) {
+  #mainProduct .list-image {
+    width: 200px;
+  }
+  #mainProduct .row-align{
+    justify-content: space-between !important;
+  }
+  #mainProduct .col-side {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+}
+@media (min-width: 768px) {
+  #mainProduct .list-image {
+    width: 200px;
+  }
+  #mainProduct .row-align{
+    justify-content: flex-start !important;
+  }
+  #mainProduct .col-side {
+    flex: 0 0 auto;
+    width: 66%;
+  }
+}
+
+@media (max-width: 500px) {
+  #mainProduct .list-image {
+    width: 100px;
+  }
+  #mainProduct .row-align{
+    justify-content: space-around !important;
+  }
+  #mainProduct .col-side {
+    flex: 0 0 auto;
+    width: 66%;
+  }
+}
+
+@media (min-width: 500px) {
+  #mainProduct .list-image {
+    width: 100px;
+  }
+  #mainProduct .row-align{
+    justify-content: space-around !important;
+  }
+  #mainProduct .col-side {
+    flex: 0 0 auto;
+    width: 66%;
+  }
+}
+
+
+
+/*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
 .back-to-top {
@@ -362,11 +431,21 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
-  background-color: rgba(9, 9, 9, 0.8);
+  height: 80vh;
   overflow: hidden;
   position: relative;
 }
+
+#hero .background {
+  background: url("../img/hero-bg.jpg");
+}
+
+#hero .banner img {
+  padding-top: 10rem;
+  max-width: 400px;
+  align-content: center;
+}
+
 #hero .carousel, #hero .carousel-inner, #hero .carousel-item, #hero .carousel-item::before {
   background-size: cover;
   background-position: center;
@@ -470,6 +549,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
   background: #fff;
 }
+
 #hero .btn-get-started {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
@@ -524,7 +604,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 992px) {
   #hero {
-    height: 100vh;
+    height: 75vh;
   }
   #hero .carousel-container {
     top: 66px;
@@ -542,7 +622,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-height: 500px) {
   #hero {
-    height: 120vh;
+    height: 95vh;
   }
 }
 
@@ -1558,6 +1638,8 @@ section {
 --------------------------------------------------------------*/
 
 #errorPage .errorPage{
+  width: 100%;
+  height: 100vh;
   background: url("../img/hero-bg.jpg") center center;
   filter: grayscale(65%);
   color: #fff;
