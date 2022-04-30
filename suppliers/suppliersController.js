@@ -1,7 +1,6 @@
 const express = require('express');
 const routes = express.Router();
 
-
 const Supplier = require('./Supplier');
 const adminAuth = require("../middleware/adminAuth");
 
@@ -71,8 +70,8 @@ routes.get("/admin/suppliers/edit/:id", adminAuth, (req,res) => {
 });
 
 routes.post("/supplier/update", adminAuth, (req,res) => {
-    var id = req.body.id;
-    var title = req.body.title;
+
+    var { id, title } = req.body;
 
     Supplier.update({title: title},{
         where: {

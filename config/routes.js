@@ -1,7 +1,6 @@
 const express = require("express");
 const routes = express.Router();
 const dotenv = require('dotenv');
-const alert = require('alert');
 
 const connection = require("../db/db");
 const Supplier = require("../suppliers/Supplier");
@@ -27,9 +26,9 @@ const company = {
 routes.get("/", (req, res) => {
 
     const slide = {
-        max: 4,
-        min: 0,
-        avg: 3
+        max: 4, //Valor final do id
+        min: 0, //Valor inicial do id
+        avg: 3 //Multiplicador
     } 
 
     Product.findAll({
@@ -60,7 +59,6 @@ routes.get("/produtos", (req, res) => {
 
 //send e-mail route
 routes.post("/send", mailSend, (req, res) => {
-    alert("Email enviado com sucesso!")
     res.redirect("/#contact")
 });
 

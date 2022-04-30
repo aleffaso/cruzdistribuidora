@@ -21,12 +21,8 @@ routes.get("/admin/product/new", adminAuth, (req, res) => {
 });
 
 routes.post("/product/new", adminAuth, (req,res) => {
-    var title = req.body.title;
-    var code = req.body.code;
-    var price = req.body.price;
-    var amount = req.body.amount;
-    var picture = req.body.picture;
-    var supplier = req.body.supplier;
+    
+    var {title, code, price, amount, picture, supplier } = req.body
     
     Product.create({
         title: title,
@@ -81,13 +77,8 @@ routes.get("/admin/products/edit/:id", adminAuth, (req,res) => {
 });
 
 routes.post("/product/update", adminAuth, (req,res) => {
-    var id = req.body.id;
-    var title = req.body.title;
-    var code = req.body.code;
-    var price = req.body.price;
-    var amount = req.body.amount;
-    var picture = req.body.picture;
-    var supplier = req.body.supplier;
+
+    var {id, title, code, price, amount, picture, supplier } = req.body
 
     Product.update(
         {

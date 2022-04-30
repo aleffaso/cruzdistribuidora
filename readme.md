@@ -18,6 +18,7 @@ The main purpose of this project is to create a webpage to a cliente about medic
 - EJS => Render HTML;
 - Express => Flexible framework;
 - Express-session => create specific routes for admins controller;
+- JWT => Json Web Token => Security Access 
 - Mysql2 => Data base;
 - Nodemailer => Send e-mail;
 - Nodemon => Update server when save;
