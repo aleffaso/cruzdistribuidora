@@ -1,10 +1,13 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken")
+const dotenv = require('dotenv');
 const routes = express.Router();
-
 
 const User = require('./User');
 const adminAuth = require("../middleware/adminAuth"); 
+
+dotenv.config({path: './.env'})
 
 routes.get("/admin/users", adminAuth, (req, res) => {
     User.findAll().then(users => {
@@ -17,16 +20,15 @@ routes.get("/admin/user/new", adminAuth, (req, res) => {
 });
 
 routes.post("/users/new", adminAuth, (req,res) => {
-    var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.password;
-    var passwordCheck = req.body.passwordCheck;
+
+    var {name, email, password, passwordCheck} = req.body;
 
     if(password != passwordCheck){
         res.send("É necessário informar a mesma senha");
     };
 
     User.findOne({where:{email: email}}).then(user => {
+
         if(user == undefined){
             
             var salt = bcrypt.genSaltSync(10);
@@ -48,7 +50,9 @@ routes.post("/users/new", adminAuth, (req,res) => {
 });
 
 routes.post("/users/delete", adminAuth, (req, res) => {
+
     var id = req.body.id;
+
     if(id != undefined){
         if(!isNaN(id)){ //is it a number or not?
             User.destroy({
@@ -67,6 +71,7 @@ routes.post("/users/delete", adminAuth, (req, res) => {
 });
 
 routes.get("/admin/users/edit/:id", adminAuth, (req,res) => {
+
     var id = req.params.id;
 
     if(isNaN(id)){
@@ -85,11 +90,8 @@ routes.get("/admin/users/edit/:id", adminAuth, (req,res) => {
 });
 
 routes.post("/users/update", adminAuth, (req,res) => {
-    var id = req.body.id;
-    var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.password;
-    var passwordCheck = req.body.passwordCheck
+
+    var {id, name, email, password, passwordCheck} = req.body;
 
     if(password != passwordCheck){
         res.send("É necessário informar a mesma senha");
@@ -109,39 +111,51 @@ routes.post("/users/update", adminAuth, (req,res) => {
     });
 });
 
-routes.get("/login", (req,res) => {
-    res.render("login");
-}); 
-
 routes.get("/admin/index", adminAuth, (req, res) => {
     res.render("admin/index");
 });
 
-routes.post("/authenticate", (req,res) => {
-    var email = req.body.email;
-    var password = req.body.password;
+routes.get("/login", (req,res) => {
+    res.render("login");
+}); 
 
-    User.findOne({where:{email:email}}).then(user => {
-        if(user != undefined){
-            var checkPassword = bcrypt.compareSync(password, user.password);
+routes.post("/login", (req, res) => {
 
-            if(checkPassword){
-                req.session.user ={
-                    id: user.id,
-                    email: user.email
+    var {email, password} = req.body;
+
+    if(email != undefined) {
+
+        User.findOne({where: {email: email}}).then(user => {
+
+            if(user != undefined){
+
+                if( bcrypt.compareSync(password, user.password)){
+
+                    jwt.sign({id:user.id, email:user.email}, process.env.JWT_TOKEN, {expiresIn:'10h'}, (err, token) =>{
+                        if(err){
+                            res.redirect("/login");
+                        }else{
+                            req.session.token = token
+                            res.redirect("/admin/index");   
+                        }
+
+                    })
+                }else{
+                    res.redirect("/login");
                 }
-                res.redirect("/admin/index");    
+    
             }else{
                 res.redirect("/login");
-            };
-        }else{
-            res.redirect("/login");
-        };
-    });
-});
+            }
+        })
+
+    }else{
+        res.redirect("/login");
+    }
+})
 
 routes.get("/logout", (req,res) => {
-    req.session.user = undefined;
+    req.session.token = undefined;
     res.redirect("/login");
 });
 

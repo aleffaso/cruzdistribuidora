@@ -1,8 +1,20 @@
+const jwt = require("jsonwebtoken")
+const dotenv = require('dotenv');
+
+dotenv.config({path: './.env'})
+
 function adminAuth(req, res, next){
-    if(req.session.user != undefined){
-        next();
-    }else{
-        res.redirect("/login");
+
+    const authToken = req.session.token;
+
+    if(authToken != undefined){       
+        jwt.verify(authToken, process.env.JWT_TOKEN, (err, user) => {
+            if(err){
+                res.redirect("/login");
+            }else{
+                next();
+            }
+        })
     }
 };
 

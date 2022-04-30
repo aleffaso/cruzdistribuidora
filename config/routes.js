@@ -26,9 +26,9 @@ const company = {
 routes.get("/", (req, res) => {
 
     const slide = {
-        max: 4,
-        min: 0,
-        avg: 3
+        max: 4, //Valor final do id
+        min: 0, //Valor inicial do id
+        avg: 3 //Multiplicador
     } 
 
     Product.findAll({
