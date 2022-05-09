@@ -138,21 +138,18 @@ routes.post("/login", (req, res) => {
                             req.session.token = token
                             res.redirect("/admin/index");   
                         }
-
-                    })
+                    });
                 }else{
                     res.redirect("/login");
                 }
-    
             }else{
                 res.redirect("/login");
             }
-        })
-
+        });
     }else{
         res.redirect("/login");
     }
-})
+});
 
 routes.get("/logout", (req,res) => {
     req.session.token = undefined;

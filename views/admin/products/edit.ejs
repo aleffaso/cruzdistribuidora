@@ -17,7 +17,7 @@
                         <input class="form-control mb-1" name="code" type="text" value="<%= product.code %>">
                         <input class="form-control mb-1" name="price" type="text" value="<%= product.price %>">
                         <input class="form-control mb-1" name="amount" type="number" value="<%= product.amount %>">
-                        <input class="form-control mb-1" name="picture" type="text" value="<%= product.picture %>" id="Picture">
+                        <input class="form-control mb-1" name="picture" type="file" value="<%= product.picture %>">
                         <select name="supplier" class="form-control mb-1">
                             <% suppliers.forEach((supplier) => {%>
                                 <option value="<%= supplier.id %>"><%= supplier.title %></option>
@@ -36,7 +36,7 @@
 <!--Footer -->
 <%- include("../../partials/footer.ejs") %>
 
-<script>
+<!-- <script>
     tinymce.init({
         selector: "#Picture",
         plugins: 'image',
@@ -48,4 +48,4 @@
         toolbar: false,
         forced_root_block : false,
     });
-</script>
+</script> -->

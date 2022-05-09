@@ -5,6 +5,7 @@ const slugify = require("slugify");
 const Product = require('./Product');
 const Supplier = require('../suppliers/Supplier');
 const adminAuth = require("../middleware/adminAuth");
+const upload = require("../middleware/uploadImage");
 
 routes.get("/admin/products", adminAuth, (req, res) => {
     Product.findAll({
@@ -20,10 +21,10 @@ routes.get("/admin/product/new", adminAuth, (req, res) => {
     });
 });
 
-routes.post("/product/new", adminAuth, (req,res) => {
-    
+routes.post("/product/new", adminAuth, upload.single("picture"), (req,res) => {
+ 
     var {title, code, price, amount, picture, supplier } = req.body
-    
+
     Product.create({
         title: title,
         slug: slugify(title),
@@ -35,6 +36,8 @@ routes.post("/product/new", adminAuth, (req,res) => {
     }).then(() => {
         res.redirect("/admin/products");
     });
+
+    
 });
 
 routes.post("/products/delete", adminAuth, (req, res) => {
