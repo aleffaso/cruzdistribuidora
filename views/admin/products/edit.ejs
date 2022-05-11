@@ -11,7 +11,7 @@
                     <p class="fs-4">Editar produto</p>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/product/update">
+                    <form method="POST" action="/product/update" enctype="multipart/form-data">
                         <label for="title">Titulo:</label>
                         <input id="title" class="form-control mb-1" name="title" type="text" value="<%= product.title %>"/>
                         <input class="form-control mb-1" name="code" type="text" value="<%= product.code %>">

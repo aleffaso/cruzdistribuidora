@@ -1,13 +1,15 @@
 const multer = require('multer');
-const path = require('path');
+
+const filePath = './public/upload';
+const fileName = '.jpg';
+const data = Date.now().toString();
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/upload');
+        cb(null, filePath);
     },
     filename: (req, file, cb) => {
-        console.log(file)
-        cb(null, "figura" + path.extname(file.originalname))
+        cb(null, data.slice(0,8) + fileName)
     },
 });
 

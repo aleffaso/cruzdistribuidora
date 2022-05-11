@@ -22,8 +22,8 @@ routes.get("/admin/product/new", adminAuth, (req, res) => {
 });
 
 routes.post("/product/new", adminAuth, upload.single("picture"), (req,res) => {
- 
-    var {title, code, price, amount, picture, supplier } = req.body
+
+    var {title, code, price, amount, price, supplier } = req.body
 
     Product.create({
         title: title,
@@ -31,13 +31,11 @@ routes.post("/product/new", adminAuth, upload.single("picture"), (req,res) => {
         code: code,
         price: price,
         amount: amount,
-        picture: picture,
+        picture: req.file.filename,
         supplierId: supplier
-    }).then(() => {
+    }).then(() =>{
         res.redirect("/admin/products");
     });
-
-    
 });
 
 routes.post("/products/delete", adminAuth, (req, res) => {
@@ -79,9 +77,9 @@ routes.get("/admin/products/edit/:id", adminAuth, (req,res) => {
     });
 });
 
-routes.post("/product/update", adminAuth, (req,res) => {
+routes.post("/product/update", adminAuth, upload.single("picture"), (req,res) => {
 
-    var {id, title, code, price, amount, picture, supplier } = req.body
+    var {id, title, code, price, amount, supplier } = req.body
 
     Product.update(
         {
@@ -89,7 +87,7 @@ routes.post("/product/update", adminAuth, (req,res) => {
             slug: slugify(title),
             code: code, price: price, 
             amount: amount, 
-            picture: picture, 
+            picture: req.file.filename, 
             supplierId: supplier 
         },
         {
