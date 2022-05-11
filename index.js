@@ -3,7 +3,6 @@ const app = express();
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-// const cors = require('cors')
 
 
 const routes = require('./config/routes');
@@ -23,9 +22,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-
-//Cors
-// app.use(cors())
 
 //static
 app.use(express.static('public'));

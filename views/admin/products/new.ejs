@@ -11,7 +11,7 @@
                     <p class="fs-4">Registrar produto</p>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/product/new">
+                    <form method="POST" action="/product/new" enctype="multipart/form-data">
                         <input class="form-control mb-1" name="title" type="text" placeholder="Titulo">
                         <input class="form-control mb-1" name="code" type="text" placeholder="Código">
                         <input class="form-control mb-1" name="price" type="text" placeholder="Preço">
@@ -21,7 +21,7 @@
                                 <option value="<%= supplier.id %>"><%= supplier.title %></option>
                             <% }) %>
                         </select>
-                        <textarea class="form-control mb-1" name="picture" type="text" placeholder="Imagem do produto" id="Picture"></textarea>
+                        <input class="form-control mb-1 mt-1" name="picture" type="file"/>
                         <button type="submit" class="btn btn-success btn-block mt-2">Registrar</button>
                     </form>
 
@@ -34,7 +34,7 @@
 <!--Footer -->
 <%- include("../../partials/footer.ejs") %>
 
-<script>
+<!-- <script>
     tinymce.init({
         selector: "#Picture",
         plugins: 'image',
@@ -46,4 +46,4 @@
         toolbar: false,
         forced_root_block : false,
     });
-</script>
+</script> -->
