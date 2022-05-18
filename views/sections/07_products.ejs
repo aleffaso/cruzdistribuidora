@@ -13,47 +13,13 @@
           <div class="swiper-slide">
             <div class="row" data-aos="fade-up" data-aos-delay="200">
               <% products.forEach(products => {%>
-                <% if (products.id > slide.min && products.id < slide.max ) {%>
                 <div class="col-md-6 mt-4 mt-md-0">
                   <div class="icon-box-product" style="background: #f0f4f8;">
-                  <i><img src="<%= products.picture %>"></i>
+                    <i><img src="<%= products.picture %>"></i>
                     <h4><%= products.title %></h4>
                     <p>Fornecedor: <%= products.supplier.title %></p>
                   </div>
                 </div>
-                <% } %> 
-              <% }) %>  
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="row" data-aos="fade-up" data-aos-delay="200">
-              <% products.forEach(products => {%>
-                <% if (products.id > (slide.min + slide.avg) && products.id < (slide.max + slide.avg)) {%>
-                  <div class="col-md-6 mt-4 mt-md-0">
-                    <div class="icon-box-product" style="background: #f0f4f8;">
-                    <i><img src="<%= products.picture %>"></i>
-                      <h4><%= products.title %></h4>
-                      <p>Fornecedor: <%= products.supplier.title %></p>
-                    </div>
-                  </div>
-                <% } %> 
-              <% }) %>  
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="row" data-aos="fade-up" data-aos-delay="200">
-              <% products.forEach(products => {%>
-                <% if (products.id > (slide.min + 2*slide.avg) && products.id < (slide.max + 2*slide.avg)) {%>
-                  <div class="col-md-6 mt-4 mt-md-0">
-                    <div class="icon-box-product" style="background: #f0f4f8;">
-                    <i><img src="<%= products.picture %>"></i>
-                      <h4><%= products.title %></h4>
-                      <p>Fornecedor: <%= products.supplier.title %></p>
-                    </div>
-                  </div>
-                <% } %> 
               <% }) %>  
             </div>
           </div>

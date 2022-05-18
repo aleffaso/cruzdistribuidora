@@ -25,18 +25,18 @@ const company = {
 //main page
 routes.get("/", (req, res) => {
 
-    const slide = {
-        max: 4, //Valor final do id
-        min: 0, //Valor inicial do id
-        avg: 3 //Multiplicador
-    } 
-
     Product.findAll({
-        include: [{model: Supplier}]
-    }).then(products => {res.render("index", {
+        order:[
+            [['updatedAt', 'DESC']]
+        ],
+        include:[
+            {model: Supplier}
+        ],
+        limit:4
+    }).then(products => {
+            res.render("index", {
             products: products,
-            company: company,
-            slide: slide
+            company: company
         });
     });
 });
