@@ -1,11 +1,14 @@
 const express = require('express');
 const routes = express.Router();
 const slugify = require("slugify");
+const dotenv = require('dotenv');
 
 const Product = require('./Product');
 const Supplier = require('../suppliers/Supplier');
 const adminAuth = require("../middleware/adminAuth");
-//const upload = require("../middleware/uploadImage");
+const { upload, uploadS3 } = require("../middleware/uploadImage");
+
+dotenv.config({path: './.env'})
 
 routes.get("/admin/products", adminAuth, (req, res) => {
     Product.findAll({
@@ -21,10 +24,13 @@ routes.get("/admin/product/new", adminAuth, (req, res) => {
     });
 });
 
-// routes.post("/product/new", adminAuth, upload.single("picture"), (req,res) => {
-routes.post("/product/new", adminAuth, (req,res) => {
+routes.post("/product/new", adminAuth, upload.single("picture"), (req,res) => {
 
-    var {title, code, price, amount, price, picture, supplier } = req.body
+    const { title, code, price, amount, supplier } = req.body;
+    const url = 'https://cruzdistribuidora.s3.us-east-2.amazonaws.com/';
+    const name = Date.now().toString().slice(0,8)+'.jpg';
+    const picture = url + name;
+
 
     Product.create({
         title: title,
@@ -35,6 +41,7 @@ routes.post("/product/new", adminAuth, (req,res) => {
         picture: picture,
         supplierId: supplier
     }).then(() =>{
+        uploadS3(name, req.file.buffer)
         res.redirect("/admin/products");
     });
 });
@@ -78,18 +85,22 @@ routes.get("/admin/products/edit/:id", adminAuth, (req,res) => {
     });
 });
 
-//routes.post("/product/update", adminAuth, upload.single("picture"), (req,res) => {
-routes.post("/product/update", adminAuth, (req,res) => {
+routes.post("/product/update", adminAuth, upload.single("picture"), (req,res) => {
 
     var {id, title, code, price, amount, picture, supplier } = req.body
+    var split = picture.split('/').slice(-1);
+
+    const url = 'https://cruzdistribuidora.s3.us-east-2.amazonaws.com/';
+    const name = split.toString();
+    const newPicture = url + name;
 
     Product.update(
         {
             title: title, 
-            slug: slugify(title),
+            slug: title,
             code: code, price: price, 
             amount: amount, 
-            picture: picture, 
+            picture: newPicture, 
             supplierId: supplier 
         },
         {
@@ -97,6 +108,7 @@ routes.post("/product/update", adminAuth, (req,res) => {
             id:id
         }
     }).then(() => {
+        uploadS3(name, req.file.buffer)
         res.redirect("/admin/products");
     }).catch(err => {
         res.redirect("/admin/products");

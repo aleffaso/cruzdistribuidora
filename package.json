@@ -18,6 +18,7 @@
   "homepage": "https://github.com/aleffaso/cruzdistribuidora#readme",
   "dependencies": {
     "alert": "^5.0.10",
+    "aws-sdk": "^2.1137.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
@@ -31,6 +32,7 @@
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.4",
     "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.4",
     "nodemailer": "^6.7.3",
     "nodemon": "^2.0.15",
     "sequelize": "^6.18.0",
