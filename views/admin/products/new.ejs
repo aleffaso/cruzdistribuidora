@@ -5,15 +5,15 @@
 
 <main id="pages">
     <section class="pages">
-        <div class="container d-flex justify-content-center"  style="padding-top: 1rem;">
+        <div class="container d-flex justify-content-center"  style="padding-top: 8rem;">
             <div class="card text-center">
-                <div class="card-header" style="width: 18rem;"><br>
+                <div class="card-header" style="width: 30rem;"><br>
                     <p class="fs-4">Registrar produto</p>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="/product/new" enctype="multipart/form-data">
-                        <input class="form-control mb-1" name="title" type="text" placeholder="Titulo">
-                        <input class="form-control mb-1" name="code" type="text" placeholder="Código">
+                        <input class="form-control mb-1" name="title" type="text" placeholder="Titulo" maxlength="41" required>
+                        <input class="form-control mb-1" name="code" type="text" placeholder="Código" required>
                         <input class="form-control mb-1" name="price" type="text" placeholder="Preço">
                         <input class="form-control mb-1" name="amount" type="number" placeholder="Quantidade">
                         <select class="form-control mb-1" name="supplier">
@@ -21,7 +21,7 @@
                                 <option value="<%= supplier.id %>"><%= supplier.title %></option>
                             <% }) %>
                         </select>
-                        <input class="form-control mb-1 mt-1" name="picture" type="file">
+                        <input class="form-control mb-1 mt-1" name="picture" type="file" required>
                         <button type="submit" class="btn btn-success btn-block mt-2">Registrar</button>
                     </form>
                 </div>
@@ -32,17 +32,3 @@
 
 <!--Footer -->
 <%- include("../../partials/footer.ejs") %>
-
-<!-- <script>
-    tinymce.init({
-        selector: "#Picture",
-        plugins: 'image',
-        menu : {    
-        test: {title: 'Inserir imagem', items: 'image'} 
-        },
-        menubar: false,
-        statusbar: false,
-        toolbar: false,
-        forced_root_block : false,
-    });
-</script> -->

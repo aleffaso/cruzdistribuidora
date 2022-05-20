@@ -60,7 +60,7 @@ routes.get("/admin/suppliers/edit/:id", adminAuth, (req,res) => {
 
     Supplier.findByPk(id).then(supplier => { //Search supplier by its ID
         if(supplier != undefined){
-            res.render("admin/supplier/edit", {supplier: supplier});
+            res.render("admin/suppliers/edit", {supplier: supplier});
         }else{
             res.redirect("/admin/suppliers");
         }
